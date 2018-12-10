@@ -1,33 +1,43 @@
+import Vue from 'vue';
+import Base from './base';
+import axios from 'axios';
+import Routes from './routes';
+import VueRouter from 'vue-router';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+require('bootstrap');
 
-require('./bootstrap');
+let token = document.head.querySelector('meta[name="csrf-token"]');
 
-window.Vue = require('vue');
+if (token) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+}
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+Vue.use(VueRouter);
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
+window.Popper = require('popper.js').default;
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+const router = new VueRouter({
+    routes: Routes,
+    mode: 'history',
+    base: '/home/',
+});
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.component('alert', require('./components/Alert.vue'));
 
-const app = new Vue({
-    el: '#app'
+Vue.mixin(Base);
+
+new Vue({
+    el: '#app',
+    router,
+    data(){
+        return {
+            alert: {
+                type: null,
+                autoClose: 0,
+                message: '',
+                confirmationProceed: null,
+                confirmationCancel: null,
+            },
+        }
+    },
 });
