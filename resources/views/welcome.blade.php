@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>AMDK</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -57,6 +57,10 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
+            
+            .description {
+                font-size: 30px;
+            }
 
             .m-b-md {
                 margin-bottom: 30px;
@@ -81,16 +85,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    AMDK
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="description">
+                    Aplikasi Produksi Air Minum dalam Kemasan
                 </div>
             </div>
         </div>
