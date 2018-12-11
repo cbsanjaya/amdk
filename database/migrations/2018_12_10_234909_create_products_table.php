@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 13, 2)->nullable();
             $table->boolean('tobuy')->default(false);
             $table->boolean('tosell')->default(false);
-            $table->boolean('raw')->default(false)->comment('bahan baku?');            
+            $table->boolean('raw')->default(false)->comment('bahan baku?');
             $table->integer('stock')->default(0);
             $table->timestamps();
         });
