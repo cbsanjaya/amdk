@@ -20,12 +20,13 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $product = new Product;
+        $product = new Product();
         $product->description = $request->description;
         $product->unit = $request->unit;
         $product->cost_price = $request->cost_price;
@@ -42,7 +43,8 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Entities\Product  $product
+     * @param \App\Entities\Product $product
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
@@ -53,8 +55,9 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Entities\Product  $product
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Entities\Product    $product
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
@@ -75,12 +78,14 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Entities\Product  $product
+     * @param \App\Entities\Product $product
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
     {
         $product->delete();
+
         return $product;
     }
 }

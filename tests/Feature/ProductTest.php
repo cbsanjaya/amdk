@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProductTest extends TestCase
 {
@@ -26,7 +24,7 @@ class ProductTest extends TestCase
     {
         $product = $this->create('App\Entities\Product');
 
-        $response = $this->getJson('/api/products/' . $product->id);
+        $response = $this->getJson('/api/products/'.$product->id);
 
         $response->assertOk()
             ->assertJson(
@@ -40,25 +38,25 @@ class ProductTest extends TestCase
 
         $response = $this->postJson('/api/products', [
             'description' => $product->description,
-            'unit' => $product->unit,
-            'cost_price' => $product->cost_price,
-            'price' => $product->price,
-            'tobuy' => $product->tobuy,
-            'tosell' => $product->tosell,
-            'raw' => $product->raw,
-            'stock' => $product->stock,
+            'unit'        => $product->unit,
+            'cost_price'  => $product->cost_price,
+            'price'       => $product->price,
+            'tobuy'       => $product->tobuy,
+            'tosell'      => $product->tosell,
+            'raw'         => $product->raw,
+            'stock'       => $product->stock,
         ]);
 
         $response->assertSuccessful()
             ->assertJson([
                 'description' => $product->description,
-                'unit' => $product->unit,
-                'cost_price' => $product->cost_price,
-                'price' => $product->price,
-                'tobuy' => $product->tobuy,
-                'tosell' => $product->tosell,
-                'raw' => $product->raw,
-                'stock' => $product->stock,
+                'unit'        => $product->unit,
+                'cost_price'  => $product->cost_price,
+                'price'       => $product->price,
+                'tobuy'       => $product->tobuy,
+                'tosell'      => $product->tosell,
+                'raw'         => $product->raw,
+                'stock'       => $product->stock,
             ]);
     }
 
@@ -67,27 +65,27 @@ class ProductTest extends TestCase
         $product = $this->create('App\Entities\Product');
         $productNew = $this->make('App\Entities\Product');
 
-        $response = $this->putJson('/api/products/' . $product->id, [
+        $response = $this->putJson('/api/products/'.$product->id, [
             'description' => $productNew->description,
-            'unit' => $productNew->unit,
-            'cost_price' => $productNew->cost_price,
-            'price' => $productNew->price,
-            'tobuy' => $productNew->tobuy,
-            'tosell' => $productNew->tosell,
-            'raw' => $productNew->raw,
-            'stock' => $productNew->stock,
+            'unit'        => $productNew->unit,
+            'cost_price'  => $productNew->cost_price,
+            'price'       => $productNew->price,
+            'tobuy'       => $productNew->tobuy,
+            'tosell'      => $productNew->tosell,
+            'raw'         => $productNew->raw,
+            'stock'       => $productNew->stock,
         ]);
 
         $response->assertSuccessful()
             ->assertJson([
                 'description' => $productNew->description,
-                'unit' => $productNew->unit,
-                'cost_price' => $productNew->cost_price,
-                'price' => $productNew->price,
-                'tobuy' => $productNew->tobuy,
-                'tosell' => $productNew->tosell,
-                'raw' => $productNew->raw,
-                'stock' => $productNew->stock,
+                'unit'        => $productNew->unit,
+                'cost_price'  => $productNew->cost_price,
+                'price'       => $productNew->price,
+                'tobuy'       => $productNew->tobuy,
+                'tosell'      => $productNew->tosell,
+                'raw'         => $productNew->raw,
+                'stock'       => $productNew->stock,
             ]);
     }
 
@@ -95,16 +93,15 @@ class ProductTest extends TestCase
     {
         $product = $this->create('App\Entities\Product');
 
-        $response = $this->deleteJson('/api/products/' . $product->id);
+        $response = $this->deleteJson('/api/products/'.$product->id);
 
         $response->assertSuccessful()
             ->assertJson([
                 'id' => $product->id,
             ]);
-        
+
         $this->assertDatabaseMissing('products', [
             'id' => $product->id,
         ]);
-    
     }
 }
