@@ -44,7 +44,6 @@ class ProductTest extends TestCase
             'tobuy'       => $product->tobuy,
             'tosell'      => $product->tosell,
             'raw'         => $product->raw,
-            'stock'       => $product->stock,
         ]);
 
         $response->assertSuccessful()
@@ -56,7 +55,6 @@ class ProductTest extends TestCase
                 'tobuy'       => $product->tobuy,
                 'tosell'      => $product->tosell,
                 'raw'         => $product->raw,
-                'stock'       => $product->stock,
             ]);
     }
 
@@ -73,7 +71,6 @@ class ProductTest extends TestCase
             'tobuy'       => $productNew->tobuy,
             'tosell'      => $productNew->tosell,
             'raw'         => $productNew->raw,
-            'stock'       => $productNew->stock,
         ]);
 
         $response->assertSuccessful()
@@ -85,7 +82,7 @@ class ProductTest extends TestCase
                 'tobuy'       => $productNew->tobuy,
                 'tosell'      => $productNew->tosell,
                 'raw'         => $productNew->raw,
-                'stock'       => $productNew->stock,
+                'stock'       => $product->stock,
             ]);
     }
 

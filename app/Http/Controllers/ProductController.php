@@ -34,7 +34,6 @@ class ProductController extends Controller
         $product->tobuy = $request->tobuy;
         $product->tosell = $request->tosell;
         $product->raw = $request->raw;
-        $product->stock = $request->stock;
         $product->save();
 
         return $product;
@@ -69,7 +68,6 @@ class ProductController extends Controller
         $product->tobuy = $request->tobuy;
         $product->tosell = $request->tosell;
         $product->raw = $request->raw;
-        $product->stock = $request->stock;
         $product->save();
 
         return $product;
