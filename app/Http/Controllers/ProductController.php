@@ -18,16 +18,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -35,7 +25,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product;
+        $product->description = $request->description;
+        $product->unit = $request->unit;
+        $product->cost_price = $request->cost_price;
+        $product->price = $request->price;
+        $product->tobuy = $request->tobuy;
+        $product->tosell = $request->tosell;
+        $product->raw = $request->raw;
+        $product->stock = $request->stock;
+        $product->save();
+
+        return $product;
     }
 
     /**
@@ -46,18 +47,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Entities\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        //
+        return $product;
     }
 
     /**
@@ -69,7 +59,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->description = $request->description;
+        $product->unit = $request->unit;
+        $product->cost_price = $request->cost_price;
+        $product->price = $request->price;
+        $product->tobuy = $request->tobuy;
+        $product->tosell = $request->tosell;
+        $product->raw = $request->raw;
+        $product->stock = $request->stock;
+        $product->save();
+
+        return $product;
     }
 
     /**
@@ -80,6 +80,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return $product;
     }
 }

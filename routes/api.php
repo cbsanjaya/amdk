@@ -18,5 +18,7 @@ Route::middleware('auth:api')->group(function() {
         return $request->user();
     });
     
-    Route::get('products', 'ProductController@index');
+    Route::apiResources([
+        'products' => 'ProductController',
+    ]);
 });
