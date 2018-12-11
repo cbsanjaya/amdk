@@ -10,7 +10,7 @@ abstract class TestCase extends BaseTestCase
     use RefreshDatabase;
     use CreatesApplication;
 
-    protected function apiLogin($user = null)
+    protected function login($user = null)
     {
         $user = $user ?: $this->create('App\User');
 

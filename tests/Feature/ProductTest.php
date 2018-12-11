@@ -8,10 +8,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProductTest extends TestCase
 {
+    use ApiAuth;
+
     public function testGetProducts()
     {
-        $this->apiLogin();
-
         $product = $this->create('App\Entities\Product');
 
         $response = $this->getJson('/api/products');
@@ -24,8 +24,6 @@ class ProductTest extends TestCase
 
     public function testGetProduct()
     {
-        $this->apiLogin();
-
         $product = $this->create('App\Entities\Product');
 
         $response = $this->getJson('/api/products/' . $product->id);
@@ -38,8 +36,6 @@ class ProductTest extends TestCase
 
     public function testStoreProduct()
     {
-        $this->apiLogin();
-
         $product = $this->make('App\Entities\Product');
 
         $response = $this->postJson('/api/products', [
@@ -68,8 +64,6 @@ class ProductTest extends TestCase
 
     public function testUpdateProduct()
     {
-        $this->apiLogin();
-
         $product = $this->create('App\Entities\Product');
         $productNew = $this->make('App\Entities\Product');
 
@@ -99,8 +93,6 @@ class ProductTest extends TestCase
 
     public function testDeleteProduct()
     {
-        $this->apiLogin();
-
         $product = $this->create('App\Entities\Product');
 
         $response = $this->deleteJson('/api/products/' . $product->id);
