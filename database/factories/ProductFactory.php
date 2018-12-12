@@ -4,6 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Entities\Product::class, function (Faker $faker) {
     $price = $faker->numberBetween(1000, 3000);
+
     return [
         'description' => $faker->title,
         'unit'        => 'pcs',

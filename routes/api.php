@@ -19,7 +19,7 @@ Route::middleware('auth:api')->group(function () {
     });
 
     Route::apiResources([
-        'products' => 'ProductController',
+        'products'  => 'ProductController',
         'assembles' => 'AssembleController',
     ]);
 });

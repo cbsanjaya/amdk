@@ -30,11 +30,10 @@ class AssembleController extends Controller
      */
     public function store(Request $request)
     {
-
         $assemble = DB::transaction(function () use ($request) {
             $products = collect($request->products);
 
-            $newProductPrice = $products->sum(function($item) {
+            $newProductPrice = $products->sum(function ($item) {
                 return $item['price'] * $item['quantity'];
             });
 
@@ -55,17 +54,17 @@ class AssembleController extends Controller
 
             $mutation = new ProductMutation();
             $mutation->product_id = $request->product_id;
-            $mutation->reference = 'assemble:' . $assemble->id;
+            $mutation->reference = 'assemble:'.$assemble->id;
             $mutation->quantity = $request->quantity;
             $mutation->period = substr($request->transaction_time, 0, 7);
             $mutation->at = $request->transaction_time;
             $mutation->save();
-            
+
             foreach ($request->products as $item) {
                 $product = Product::find($item['product_id']);
                 $product->stock -= $item['quantity'];
                 $product->save();
-            
+
                 $assembleProduct = new AssembleProduct();
                 $assembleProduct->assemble_id = $assemble->id;
                 $assembleProduct->product_id = $item['product_id'];
@@ -75,8 +74,8 @@ class AssembleController extends Controller
 
                 $mutation = new ProductMutation();
                 $mutation->product_id = $item['product_id'];
-                $mutation->reference = 'assemble_product:' . $assembleProduct->id;
-                $mutation->quantity = - $item['quantity'];
+                $mutation->reference = 'assemble_product:'.$assembleProduct->id;
+                $mutation->quantity = -$item['quantity'];
                 $mutation->period = substr($request->transaction_time, 0, 7);
                 $mutation->at = $request->transaction_time;
                 $mutation->save();
@@ -86,10 +85,10 @@ class AssembleController extends Controller
         });
 
         return [
-            'message' => 'Perakitan Berhasil disimpan',
+            'message'  => 'Perakitan Berhasil disimpan',
             'assemble' => $assemble,
         ];
-}
+    }
 
     /**
      * Display the specified resource.
