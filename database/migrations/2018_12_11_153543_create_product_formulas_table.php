@@ -18,6 +18,7 @@ class CreateProductFormulasTable extends Migration
             $table->unsignedInteger('product_id');
             $table->unsignedInteger('material_id');
             $table->unsignedInteger('qty');
+            $table->decimal('price', 13, 2)->nullable();
             $table->timestamps();
             $table->foreign('product_id')
                 ->references('id')->on('products');

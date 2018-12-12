@@ -19,6 +19,7 @@ class CreateAssembleResultsTable extends Migration
             $table->dateTime('transaction_time');
             $table->unsignedInteger('product_id');
             $table->unsignedInteger('quantity');
+            $table->decimal('price', 13, 2)->nullable();
             $table->string('memo')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();

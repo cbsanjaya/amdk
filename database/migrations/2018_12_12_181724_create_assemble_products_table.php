@@ -18,6 +18,7 @@ class CreateAssembleProductsTable extends Migration
             $table->unsignedInteger('assemble_id');
             $table->unsignedInteger('product_id');
             $table->unsignedInteger('quantity');
+            $table->decimal('price', 13, 2)->nullable();
             $table->timestamps();
         });
     }
