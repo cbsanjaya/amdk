@@ -16,7 +16,9 @@ class CreateProductMutationsTable extends Migration
         Schema::create('product_mutations', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('product_id');
-            $table->string('reference')
+            $table->string('group')
+                ->comment('group dari transaksi');
+            $table->string('reference')->unique()
                 ->comment('referensi ke transaksi jenis:id');
             $table->integer('quantity')
                 ->comment('+ untuk masuk dan - untuk keluar');
