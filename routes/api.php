@@ -20,6 +20,6 @@ Route::middleware('auth:api')->group(function () {
 
     Route::apiResources([
         'products' => 'ProductController',
-        'assemble' => 'AssembleController',
+        'assembles' => 'AssembleController',
     ]);
 });
