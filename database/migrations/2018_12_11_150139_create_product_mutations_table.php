@@ -18,8 +18,10 @@ class CreateProductMutationsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->string('reference')
                 ->comment('referensi ke transaksi jenis:id');
-            $table->decimal('debit', 13, 2)->default(0);
-            $table->decimal('credit', 13, 2)->default(0);
+            $table->integer('quantity')
+                ->comment('+ untuk masuk dan - untuk keluar');
+            $table->string('period')
+                ->comment('periode mutasi perbulan');
             $table->timestamp('at');
             $table->foreign('product_id')
                 ->references('id')->on('products');
