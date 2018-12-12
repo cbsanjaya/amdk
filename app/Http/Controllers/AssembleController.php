@@ -18,7 +18,7 @@ class AssembleController extends Controller
      */
     public function index()
     {
-        //
+        return Assemble::all();
     }
 
     /**
@@ -93,24 +93,24 @@ class AssembleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param @param \App\Entities\Assemble $assemble
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($assemble)
     {
-        //
+        return $assemble;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int                      $id
+     * @param \App\Entities\Assemble   $assemble
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Assemble $assemble)
     {
         //
     }
@@ -118,12 +118,14 @@ class AssembleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param int \App\Entities\Assemble $assemble
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Assemble $assemble)
     {
-        //
+        $assemble->delete();
+
+        return $assemble;
     }
 }
