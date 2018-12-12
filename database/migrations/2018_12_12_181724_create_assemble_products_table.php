@@ -20,6 +20,10 @@ class CreateAssembleProductsTable extends Migration
             $table->unsignedInteger('quantity');
             $table->decimal('price', 13, 2)->nullable();
             $table->timestamps();
+            $table->foreign('product_id')
+                ->references('id')->on('products');
+            $table->foreign('assemble_id')
+                ->references('id')->on('assembles');
         });
     }
 

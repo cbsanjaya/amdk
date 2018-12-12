@@ -23,6 +23,10 @@ class CreateAssemblesTable extends Migration
             $table->string('memo')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();
+            $table->foreign('product_id')
+                ->references('id')->on('products');
+            $table->foreign('user_id')
+                ->references('id')->on('users');
         });
     }
 
