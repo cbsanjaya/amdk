@@ -4,10 +4,12 @@ namespace Tests\Feature;
 
 trait ApiAuth
 {
+    protected $user;
+
     protected function setUp()
     {
         parent::setUp();
 
-        $this->login();
+        $this->user = $this->login();
     }
 }
