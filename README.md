@@ -1,6 +1,13 @@
-## BAK Yudharta
+<p align="center">Aplikasi AMDK</p>
 
-BAK Yudharta Adalah Aplikasi Keuangan di Universitas Yudharta Pasuruan.
+<p align="center">
+<a href="https://travis-ci.org/cbsanjaya/amdk"><img src="https://travis-ci.org/cbsanjaya/amdk.svg" alt="Build Status"></a>
+<a href="https://github.styleci.io/repos/161211216"><img src="https://github.styleci.io/repos/161211216/shield?branch=master" alt="StyleCI"></a>
+</p>
+
+## Tentang Aplikasi AMDK
+
+Adalah Aplikasi yang digunakan untuk Manajement Produksi dan Pemasaran Air Minum Dalam Kemasan.
 
 ### Installation
 #### server requirement
