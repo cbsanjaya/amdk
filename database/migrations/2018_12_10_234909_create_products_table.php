@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('description');
             $table->string('unit');
-            $table->decimal('cost_price', 13, 2);
-            $table->decimal('price', 13, 2)->nullable();
+            $table->decimal('cost_price', 13, 2)->default(0);
+            $table->decimal('price', 13, 2)->default(0);
             $table->boolean('tobuy')->default(false);
             $table->boolean('tosell')->default(false);
             $table->boolean('raw')->default(false)->comment('bahan baku?');
