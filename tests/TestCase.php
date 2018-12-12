@@ -16,7 +16,7 @@ abstract class TestCase extends BaseTestCase
 
         $this->actingAs($user, 'api');
 
-        return $this;
+        return $user;
     }
 
     protected function create($class, $attributes = [], $times = null)
