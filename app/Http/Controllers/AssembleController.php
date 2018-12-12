@@ -47,11 +47,6 @@ class AssembleController extends Controller
             $assemble->user_id = $request->user_id;
             $assemble->save();
 
-            $product = Product::find($request->product_id);
-            $product->stock += $request->quantity;
-            $product->cost_price = $newProductPrice;
-            $product->save();
-
             $mutation = new ProductMutation();
             $mutation->product_id = $request->product_id;
             $mutation->reference = 'assemble:'.$assemble->id;
@@ -61,10 +56,6 @@ class AssembleController extends Controller
             $mutation->save();
 
             foreach ($request->products as $item) {
-                $product = Product::find($item['product_id']);
-                $product->stock -= $item['quantity'];
-                $product->save();
-
                 $assembleProduct = new AssembleProduct();
                 $assembleProduct->assemble_id = $assemble->id;
                 $assembleProduct->product_id = $item['product_id'];

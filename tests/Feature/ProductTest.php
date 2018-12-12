@@ -82,7 +82,6 @@ class ProductTest extends TestCase
                 'tobuy'       => $productNew->tobuy,
                 'tosell'      => $productNew->tosell,
                 'raw'         => $productNew->raw,
-                'stock'       => $product->stock,
             ]);
     }
 

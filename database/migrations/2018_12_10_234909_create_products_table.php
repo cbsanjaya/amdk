@@ -22,7 +22,6 @@ class CreateProductsTable extends Migration
             $table->boolean('tobuy')->default(false);
             $table->boolean('tosell')->default(false);
             $table->boolean('raw')->default(false)->comment('bahan baku?');
-            $table->integer('stock')->default(0);
             $table->timestamps();
         });
     }

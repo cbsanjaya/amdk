@@ -13,7 +13,6 @@ $factory->define(App\Entities\Product::class, function (Faker $faker) {
         'tobuy'       => $faker->randomElement([true, false]),
         'tosell'      => $faker->randomElement([true, false]),
         'raw'         => $faker->randomElement([true, false]),
-        'stock'       => $faker->randomNumber(2),
     ];
 });
 

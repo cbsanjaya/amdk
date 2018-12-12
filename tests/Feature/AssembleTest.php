@@ -72,17 +72,6 @@ class AssembleTest extends TestCase
             'price'      => $product3->cost_price,
         ]);
 
-        $this->assertDatabaseHas('products', [
-            'id'         => $product1->id,
-            'stock'      => $product1->stock + $qtyProduct,
-            'cost_price' => $newPrice,
-        ]);
-
-        $this->assertDatabaseHas('products', [
-            'id'    => $product2->id,
-            'stock' => $product2->stock - $qtyRaw1,
-        ]);
-
         $this->assertDatabaseHas('product_mutations', [
             'product_id' => $product1->id,
             'reference'  => 'assemble:'.$assembleResponse->id,
