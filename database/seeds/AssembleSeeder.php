@@ -18,11 +18,11 @@ class AssembleSeeder extends Seeder
         ]);
 
         $product1 = factory('App\Entities\Product')->state('product')->create();
-        
+
         $product2 = factory('App\Entities\Product')->state('raw')->create();
 
         $product3 = factory('App\Entities\Product')->state('raw')->create();
-        
+
         $assemble = new App\Entities\Assemble();
         $assemble->type = 'manual';
         $assemble->transaction_time = $transactionTime;
@@ -32,7 +32,7 @@ class AssembleSeeder extends Seeder
         $assemble->memo = 'Memo Biasa';
         $assemble->user_id = $user->id;
         $assemble->save();
-        
+
         $mutation = new App\Entities\ProductMutation();
         $mutation->product_id = $product1->id;
         $mutation->group = 'assemble:'.$assemble->id;
@@ -73,6 +73,5 @@ class AssembleSeeder extends Seeder
         $mutation->period = substr($transactionTime, 0, 7);
         $mutation->at = $transactionTime;
         $mutation->save();
-
     }
 }

@@ -26,10 +26,10 @@ class AssembleTest extends TestCase
         $this->seed('AssembleSeeder');
 
         $response = $this->getJson('/api/assembles/1');
-        
+
         $response->assertOk()
             ->assertJson(
-                ['id' => 1,]
+                ['id' => 1]
             );
     }
 
@@ -116,7 +116,7 @@ class AssembleTest extends TestCase
         $product1 = factory('App\Entities\Product')->state('product')->create();
         $product2 = factory('App\Entities\Product')->state('raw')->create();
         $newPrice = $product2->cost_price * $qtyRaw1;
-        
+
         $response = $this->putJson('/api/assembles/1', [
             'type'             => 'manual',
             'transaction_time' => $transactionTime,
@@ -179,7 +179,7 @@ class AssembleTest extends TestCase
             'period'     => substr($transactionTime, 0, 7),
             'at'         => $transactionTime,
         ]);
- 
+
         $this->assertDatabaseMissing('product_mutations', [
             'product_id' => 1,
         ]);

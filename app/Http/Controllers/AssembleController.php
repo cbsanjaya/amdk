@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Entities\Assemble;
 use App\Entities\AssembleProduct;
-use App\Entities\Product;
 use App\Entities\ProductMutation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -113,7 +112,7 @@ class AssembleController extends Controller
             });
 
             $assembleProducts = $assemble->assembleProducts()->delete();
-            
+
             $assemble->type = $request->type;
             $assemble->transaction_time = $request->transaction_time;
             $assemble->product_id = $request->product_id;
@@ -133,7 +132,7 @@ class AssembleController extends Controller
             $mutation->period = substr($request->transaction_time, 0, 7);
             $mutation->at = $request->transaction_time;
             $mutation->save();
-            
+
             foreach ($request->products as $item) {
                 $assembleProduct = new AssembleProduct();
                 $assembleProduct->assemble_id = $assemble->id;
