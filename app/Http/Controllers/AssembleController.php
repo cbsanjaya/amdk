@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Assemble;
+use Illuminate\Http\Request;
 use App\Entities\AssembleProduct;
 use App\Entities\ProductMutation;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AssembleController extends Controller
