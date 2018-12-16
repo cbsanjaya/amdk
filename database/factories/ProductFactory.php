@@ -6,7 +6,7 @@ $factory->define(App\Entities\Product::class, function (Faker $faker) {
     $price = $faker->numberBetween(1000, 3000);
 
     return [
-        'description' => $faker->title,
+        'description' => $faker->sentence,
         'unit'        => 'pcs',
         'cost_price'  => $price * 9,
         'price'       => $price * 10,
