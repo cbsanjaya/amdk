@@ -10,11 +10,18 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Product::all();
+        if ($request->tag) {
+            return Product::where('description', 'like', '%'.$request->tag.'%')
+                ->paginate();
+        }
+
+        return Product::paginate();
     }
 
     /**
