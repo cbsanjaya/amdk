@@ -2,13 +2,6 @@ import _ from 'lodash';
 import moment from 'moment';
 
 export default {
-    computed: {
-        Telescope(){
-            return Telescope;
-        }
-    },
-
-
     methods: {
         /**
          * Show the time ago format for the given time.
