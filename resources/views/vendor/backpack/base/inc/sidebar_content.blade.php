@@ -3,6 +3,8 @@
 
 <li><a href="{{ backpack_url('product') }}"><i class='fa fa-shopping-cart'></i> <span>Product</span></a></li>
 
+<li><a href="{{ backpack_url('formula') }}"><i class='fa fa-balance-scale'></i> <span>Formula</span></a></li>
+
 <!-- Users, Roles Permissions -->
 <li class="treeview">
     <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
