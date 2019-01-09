@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\ProductRequest as StoreRequest;
+// VALIDATION: change the requests to match your own file names if you need form validation
+use App\Http\Requests\ProductRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-// VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ProductRequest as StoreRequest;
-use App\Http\Requests\ProductRequest as UpdateRequest;
-
 /**
- * Class ProductCrudController
- * @package App\Http\Controllers\Admin
+ * Class ProductCrudController.
  * @property-read CrudPanel $crud
  */
 class ProductCrudController extends CrudController
@@ -23,7 +21,7 @@ class ProductCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\Product');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/product');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/product');
         $this->crud->setEntityNameStrings('product', 'products');
 
         /*
