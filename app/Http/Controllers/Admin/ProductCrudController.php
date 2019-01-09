@@ -31,73 +31,73 @@ class ProductCrudController extends CrudController
         */
 
         $this->crud->addColumn([
-            'name' => 'description', 
-            'type' => 'text', 
+            'name' => 'description',
+            'type' => 'text',
             'label' => 'Nama Barang',
         ]);
 
         $this->crud->addColumn([
-            'name' => 'unit', 
-            'type' => 'text', 
+            'name' => 'unit',
+            'type' => 'text',
             'label' => 'Satuan',
             'searchLogic' => false,
         ]);
 
         $this->crud->addColumn([
-            'name' => 'cost_price', 
-            'type' => 'number', 
+            'name' => 'cost_price',
+            'type' => 'number',
             'label' => 'Harga Beli',
             'searchLogic' => false,
         ]);
 
         $this->crud->addColumn([
-            'name' => 'price', 
-            'type' => 'number', 
+            'name' => 'price',
+            'type' => 'number',
             'label' => 'Harga Jual',
             'searchLogic' => false,
         ]);
 
         $this->crud->addField([
-            'name' => 'description', 
-            'type' => 'text', 
-            'label' => 'Nama Barang'
+            'name' => 'description',
+            'type' => 'text',
+            'label' => 'Nama Barang',
         ]);
 
         $this->crud->addField([
-            'name' => 'unit', 
-            'type' => 'text', 
-            'label' => 'Satuan'
+            'name' => 'unit',
+            'type' => 'text',
+            'label' => 'Satuan',
         ]);
 
         $this->crud->addField([
-            'name' => 'cost_price', 
-            'type' => 'number', 
+            'name' => 'cost_price',
+            'type' => 'number',
             'label' => 'Harga Beli',
             'prefix' => 'Rp',
         ]);
 
         $this->crud->addField([
-            'name' => 'price', 
-            'type' => 'number', 
+            'name' => 'price',
+            'type' => 'number',
             'label' => 'Harga Jual',
             'prefix' => 'Rp',
         ]);
 
         $this->crud->addField([
-            'name' => 'tobuy', 
-            'type' => 'checkbox', 
+            'name' => 'tobuy',
+            'type' => 'checkbox',
             'label' => 'Untuk dibeli',
         ]);
 
         $this->crud->addField([
-            'name' => 'tosell', 
-            'type' => 'checkbox', 
+            'name' => 'tosell',
+            'type' => 'checkbox',
             'label' => 'untuk dijual',
         ]);
 
         $this->crud->addField([
-            'name' => 'raw', 
-            'type' => 'checkbox', 
+            'name' => 'raw',
+            'type' => 'checkbox',
             'label' => 'Bahan Baku',
         ]);
 
