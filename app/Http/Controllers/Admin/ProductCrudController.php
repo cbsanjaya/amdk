@@ -30,8 +30,76 @@ class ProductCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setFromDb();
+        $this->crud->addColumn([
+            'name' => 'description', 
+            'type' => 'text', 
+            'label' => 'Nama Barang',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'unit', 
+            'type' => 'text', 
+            'label' => 'Satuan',
+            'searchLogic' => false,
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'cost_price', 
+            'type' => 'number', 
+            'label' => 'Harga Beli',
+            'searchLogic' => false,
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'price', 
+            'type' => 'number', 
+            'label' => 'Harga Jual',
+            'searchLogic' => false,
+        ]);
+
+        $this->crud->addField([
+            'name' => 'description', 
+            'type' => 'text', 
+            'label' => 'Nama Barang'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'unit', 
+            'type' => 'text', 
+            'label' => 'Satuan'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'cost_price', 
+            'type' => 'number', 
+            'label' => 'Harga Beli',
+            'prefix' => 'Rp',
+        ]);
+
+        $this->crud->addField([
+            'name' => 'price', 
+            'type' => 'number', 
+            'label' => 'Harga Jual',
+            'prefix' => 'Rp',
+        ]);
+
+        $this->crud->addField([
+            'name' => 'tobuy', 
+            'type' => 'checkbox', 
+            'label' => 'Untuk dibeli',
+        ]);
+
+        $this->crud->addField([
+            'name' => 'tosell', 
+            'type' => 'checkbox', 
+            'label' => 'untuk dijual',
+        ]);
+
+        $this->crud->addField([
+            'name' => 'raw', 
+            'type' => 'checkbox', 
+            'label' => 'Bahan Baku',
+        ]);
 
         // add asterisk for fields that are required in ProductRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
