@@ -5,6 +5,7 @@
 
 <li><a href="{{ backpack_url('formula') }}"><i class='fa fa-balance-scale'></i> <span>Formula</span></a></li>
 
+<li><a href="{{ backpack_url('assemble') }}"><i class='fa fa-tag'></i> <span>Assembles</span></a></li>
 <!-- Users, Roles Permissions -->
 <li class="treeview">
     <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
