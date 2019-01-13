@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
 
 class Formula extends Model
 {
@@ -34,9 +34,11 @@ class Formula extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function product() {
+    public function product()
+    {
         return $this->belongsTo('App\Models\Product');
     }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

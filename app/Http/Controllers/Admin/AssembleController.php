@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\CRUD\app\Http\Controllers\CrudController;
-
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\AssembleRequest as StoreRequest;
+// VALIDATION: change the requests to match your own file names if you need form validation
+use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\AssembleRequest as UpdateRequest;
 
 /**
- * Class AssembleCrudController
- * @package App\Http\Controllers\Admin
+ * Class AssembleCrudController.
  * @property-read CrudPanel $crud
  */
 class AssembleController extends CrudController
@@ -23,7 +21,7 @@ class AssembleController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\Assemble');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/assemble');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/assemble');
         $this->crud->setEntityNameStrings('assemble', 'assembles');
 
         /*
@@ -40,11 +38,11 @@ class AssembleController extends CrudController
         ]);
 
         $this->crud->addColumn([
-            'name' => 'product_id', 
-            'type' => 'select', 
+            'name' => 'product_id',
+            'type' => 'select',
             'label' => 'Nama Product',
             'entity' => 'product', // the method that defines the relationship in your Model
-            'attribute' => "description", // foreign key attribute that is shown to user
+            'attribute' => 'description', // foreign key attribute that is shown to user
             'model' => "App\Models\Product", // foreign key model
         ]);
 
@@ -69,11 +67,11 @@ class AssembleController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name' => 'product_id', 
-            'type' => 'select2', 
+            'name' => 'product_id',
+            'type' => 'select2',
             'label' => 'Nama Product',
             'entity' => 'product', // the method that defines the relationship in your Model
-            'attribute' => "description", // foreign key attribute that is shown to user
+            'attribute' => 'description', // foreign key attribute that is shown to user
             'model' => "App\Models\Product", // foreign key model
         ]);
 
