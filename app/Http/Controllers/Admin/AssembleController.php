@@ -62,8 +62,9 @@ class AssembleController extends CrudController
 
         $this->crud->addField([
             'name' => 'transaction_time',
-            'type' => 'datetime',
+            'type' => 'datetime_picker',
             'label' => 'Waktu Merakit',
+            'default' => now(),
         ]);
 
         $this->crud->addField([
@@ -79,12 +80,38 @@ class AssembleController extends CrudController
             'name' => 'quantity',
             'type' => 'number',
             'label' => 'Qty',
+            'default' => 1,
         ]);
 
         $this->crud->addField([
             'name' => 'memo',
             'type' => 'textarea',
             'label' => 'Memo',
+        ]);
+
+        $this->crud->child_resource_included = ['select' => false, 'number' => false];
+
+        $this->crud->addField([
+            'name' => 'products',
+            'label' => 'Bahan Baku',
+            'type' => 'child',
+            'columns' => [
+                [
+                    'label' => 'Nama Bahan Baku',
+                    'type' => 'child_select',
+                    'name' => 'product_id',
+                    'entity' => 'product',
+                    'attribute' => 'description',
+                    'size' => '3',
+                    'model' => "App\Models\Product"
+                ],
+                ['name' => 'qty',
+                    'label' => 'Quantity',
+                    'type' => 'child_number',
+                    'default' => 1,
+                ],
+            ],
+            'min' => 1,
         ]);
 
         // add asterisk for fields that are required in AssembleRequest
@@ -104,6 +131,7 @@ class AssembleController extends CrudController
 
     public function update(UpdateRequest $request)
     {
+        $request['user_id'] = backpack_auth()->user()->id;
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
