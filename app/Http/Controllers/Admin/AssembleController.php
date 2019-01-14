@@ -103,7 +103,7 @@ class AssembleController extends CrudController
                     'entity' => 'product',
                     'attribute' => 'description',
                     'size' => '3',
-                    'model' => "App\Models\Product"
+                    'model' => "App\Models\Product",
                 ],
                 ['name' => 'qty',
                     'label' => 'Quantity',
