@@ -71,7 +71,7 @@ class AssembleController extends CrudController
             'name' => 'product_id',
             'type' => 'select2',
             'label' => 'Nama Product',
-            'options' => function($model) {
+            'options' => function ($model) {
                 return $model->where('tosell', true)->where('raw', false)->get();
             },
             'entity' => 'product', // the method that defines the relationship in your Model
@@ -107,7 +107,7 @@ class AssembleController extends CrudController
                     'attribute' => 'description',
                     'size' => '3',
                     'model' => "App\Models\Product",
-                    'options' => function($model) {
+                    'options' => function ($model) {
                         return $model->where('raw', true)->get();
                     },
                 ],
