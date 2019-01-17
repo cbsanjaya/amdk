@@ -1,4 +1,12 @@
 <!-- select2 -->
+@php
+    if (!isset($field['options'])) {
+        $options = $field['model']::all();
+    } else {
+        $options = call_user_func($field['options'], $field['model']::query());
+    }
+@endphp
+
 <div clas="col-md-12">
 
     <?php $entity_model = $crud->model; ?>
@@ -6,14 +14,11 @@
         ng-model="item.{{ $field['name'] }}"
         @include('crud::inc.field_attributes', ['default_class' =>  'form-control select2'])
         >
-            <option value="">-</option>
+        <option value="">-</option>
 
-            @if (isset($field['model']))
-                @foreach ($field['model']::all() as $connected_entity_entry)
-                    <option value="{{ $connected_entity_entry->getKey() }}"
-                    >{{ $connected_entity_entry->{$field['attribute']} }}</option>
-                @endforeach
-            @endif
+        @foreach ($options as $option)
+            <option value="{{ $option->getKey() }}">{{ $option->{$field['attribute']} }}</option>
+        @endforeach
     </select>
 
     {{-- HINT --}}
