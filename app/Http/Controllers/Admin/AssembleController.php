@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\AssembleRequest as StoreRequest;
+use App\Models\Product;
 // VALIDATION: change the requests to match your own file names if you need form validation
+use App\Models\AssembleProduct;
+use App\Http\Requests\AssembleRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\AssembleRequest as UpdateRequest;
-use App\Models\Product;
-use App\Models\AssembleProduct;
 
 /**
  * Class AssembleCrudController.
@@ -138,7 +138,7 @@ class AssembleController extends CrudController
         foreach ($products as $item) {
             $productId = $item->product_id;
             $price = Product::find($productId)->price;
-            
+
             $assembleProduct = new AssembleProduct();
             $assembleProduct->assemble_id = $this->crud->entry->id;
             $assembleProduct->product_id = $productId;
