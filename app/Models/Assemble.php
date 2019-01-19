@@ -18,8 +18,8 @@ class Assemble extends Model
     protected $table = 'assembles';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = ['id'];
-    // protected $fillable = [];
+    // protected $guarded = ['id'];
+    protected $fillable = ['transaction_time', 'product_id', 'quantity', 'memo', 'user_id'];
     // protected $hidden = [];
     // protected $dates = [];
 

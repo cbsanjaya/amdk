@@ -6,6 +6,8 @@ use App\Http\Requests\AssembleRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\AssembleRequest as UpdateRequest;
+use App\Models\Product;
+use App\Models\AssembleProduct;
 
 /**
  * Class AssembleCrudController.
@@ -128,10 +130,23 @@ class AssembleController extends CrudController
     public function store(StoreRequest $request)
     {
         $request['user_id'] = backpack_auth()->user()->id;
+        $products = json_decode($request->products);
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
+        foreach ($products as $item) {
+            $productId = $item->product_id;
+            $price = Product::find($productId)->price;
+            
+            $assembleProduct = new AssembleProduct();
+            $assembleProduct->assemble_id = $this->crud->entry->id;
+            $assembleProduct->product_id = $productId;
+            $assembleProduct->quantity = $item->qty;
+            $assembleProduct->price = $price;
+            $assembleProduct->save();
+        }
+
         return $redirect_location;
     }
 
